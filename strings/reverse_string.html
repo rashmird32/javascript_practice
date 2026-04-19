@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Practice</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>String Tools</h1>
+
+    <input type="text" id="userInput" placeholder="Enter text here">
+
+    <br>
+
+    <button onclick="reverseString()">Reverse</button>
+    <button onclick="reverseStringLoop()">Reverse through Loop</button>
+    
+
+    <div class="result" id="output"></div>
+
+    <script>
+
+        function reverseString(){
+            
+            const input = document.getElementById("userInput").value;
+            const reversed = input.split("").reverse().join("");
+
+            document.getElementById("output").textContent = "Reversed: "+reversed;
+        }
+        function reverseStringLoop(){
+            const input = document.getElementById("userInput").value;
+            let reversed = "";
+            for(let i = input.length-1; i>=0; i--){
+                reversed += input[i];
+            }
+            document.getElementById("output").textContent = "Reversed: "+reversed;
+        }
+    </script>
+
+</body>
+</html>
