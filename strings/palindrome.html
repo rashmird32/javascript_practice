@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        </style>
+</head>
+<body>
+    <h1>String Tools</h1>
+
+    <input type="text" id="userInput" placeholder="Enter text here">
+
+    <br>
+
+    <button onclick="checkPalindrome()">Check Palindrome</button>
+    
+
+    <div class="result" id="output"></div>
+</body>
+<script>
+    function checkPalindrome(){
+        let input = document.getElementById("userInput").value;
+
+        let clean = input.toLowerCase().replace(/[^a-z0-9]/g,"");
+        let reversed = clean.split("").reverse().join("");
+
+        if(clean === reversed){
+            document.getElementById("output").textContent = "It is a Palindrome";
+        }else{
+            document.getElementById("output").textContent = "Not a Palindrome";
+        }
+    }
+</script>
+</html>
