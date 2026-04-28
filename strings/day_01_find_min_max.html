@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Max Finder</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input {
+    border: none;
+}
+
+button {
+    background: #22c55e;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #16a34a;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Find Min Max</h2>
+        <input type="text" id="arrayValue" placeholder="Enter numbers(eg. 2,3,4) ">
+        <button onclick="findMinMax()">Find</button>
+        <p id="result"></p>
+    </div>
+</body>
+<script>
+
+function findMinMax(){
+    let input = document.getElementById("arrayValue").value;
+
+    let arr = input.split(",").map(num => Number(num.trim())).filter(num => !isNaN(num));
+
+    let max = arr[0];
+    let min = arr[0];
+
+    for(let i = 0; i< arr.length; i++){
+        if(arr[i] > max) max = arr[i];
+        if(arr[i] < min) min = arr[i];
+    }
+
+    document.getElementById("result").textContent = `Max: ${max}, Min: ${min}`;
+}
+
+</script>
+</html>
