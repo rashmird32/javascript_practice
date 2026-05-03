@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Arrays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input {
+            border: none;
+        }
+
+        button {
+            background: #22c55e;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Second Largest Number</h2>
+        <input type="text" id="userInput1" placeholder="Enter numbers (e.g. 10,20,30,40)"><br>
+        <input type="text" id="userInput2" placeholder="Enter numbers (e.g. 10,20,30,40)">
+        <button onclick="mergeArrays()">Merge</button>
+        <p id="result"></p>
+    </div>
+</body>
+<script>
+    function mergeArrays(){
+        let input1 = document.getElementById("userInput1").value;
+        let input2 = document.getElementById("userInput2").value;
+
+        let arr1 = input1.split(",").map(num => num.trim()).filter(num => num != "").map(Number);
+        let arr2 = input2.split(",").map(num => num.trim()).filter(num => num != "").map(Number);
+
+        let merged = [...new Set([...arr1,...arr2])];
+
+        document.getElementById("result").textContent = `Merged Array: ${merged}`;
+
+    }
+</script>
+</html>
