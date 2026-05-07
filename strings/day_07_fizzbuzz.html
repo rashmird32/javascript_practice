@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .output {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .fizz { color: #22c55e; }
+        .buzz { color: #f59e0b; }
+        .fizzbuzz { color: #ef4444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>FizzBuzz</h2>
+        <input type="text" id="start" placeholder="Enter start number">
+        <input type="text" id="end" placeholder="Enter end number">
+        <br/>
+        <button onclick="runFizzBuzz()">Generate</button>
+        <div class="output" id="output"></div>
+
+    </div>
+</body>
+<script>
+    function runFizzBuzz(){
+        let start = parseInt(document.getElementById("start").value);
+        let end = parseInt(document.getElementById("end").value);
+        let outputDiv = document.getElementById("output");
+
+        outputDiv.innerHTML = "";
+
+        if(isNaN(start) || isNaN(end)){
+            outputDiv.textContent = "Please enter valid numbers";
+            return;
+        }
+
+        for(let i = start; i<= end; i++){
+            if(i % 3 === 0 && i % 5 === 0){
+                result = `<div class="fizzbuzz">FizzBuzz</div>`;
+            }else if(i % 3 === 0){
+               result = `<div class="fizz">Fizz</div>`; 
+            }else if(i % 5 === 0){
+               result = `<div class="buzz">Buzz</div>`;   
+            }else{
+                result = `<div>${i}</div>`;
+            }
+            outputDiv.innerHTML += result;
+        }
+
+
+    }
+</script>
+</html>
