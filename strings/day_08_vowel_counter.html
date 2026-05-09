@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: #667eea;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .vowel_box {
+      margin-top: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vowel Counter</h2>
+        <input type="text" id="input" placeholder="Enter the text">
+        <button onclick="countVowels()">Count</button>
+        <p id="total"></p>
+        <div class="vowel_box" id="vowel_box"></div>
+    </div>
+    
+</body>
+<script>
+    function countVowels(){
+        let input = document.getElementById("input").value.toLowerCase();
+
+        let vowels ={
+            a:0,
+            e:0,
+            i:0,
+            o:0,
+            u:0
+        };
+
+        for(let char of input){
+            if(vowels.hasOwnProperty(char)){
+                vowels[char]++;
+            }
+        } 
+
+        let total = Object.values(vowels).reduce((acc,cur) => acc + cur,0);
+
+        document.getElementById("total").textContent = `Total: ${total}`;
+
+        document.getElementById("vowel_box").innerHTML = `
+        a: ${vowels.a}<br/>
+        e: ${vowels.e}<br/>
+        i: ${vowels.i}<br/>
+        o: ${vowels.o}<br/>
+        u: ${vowels.u}<br/>`
+    }
+</script>
+</html>
